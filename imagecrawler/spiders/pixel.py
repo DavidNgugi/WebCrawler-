@@ -32,7 +32,12 @@ class PexelsScraper(scrapy.Spider):
         for image in images:
             img_url = PexelsScraper.src_extractor.findall(image)[0]
             tags = [tag.replace(',', '').lower() for tag in PexelsScraper.tags_extractor.findall(image)[0].split(' ')]
+            
+            print("-----------------------------------------------------------------------------------------")
             print img_url, tags
+            print("------------------------------------------------------------------------------------------")
+            
+            
 
         link_extractor = LinkExtractor(allow=PexelsScraper.url_matcher)
         next_links = [link.url for link in link_extractor.extract_links(response) if not self.is_extracted(link.url)]
@@ -40,7 +45,7 @@ class PexelsScraper(scrapy.Spider):
         # Crawl the filtered links
         for link in next_links:
             yield scrapy.Request(link, self.parse)
-        print response.url, response.body
+        
 
     def is_extracted(self, url):
         
