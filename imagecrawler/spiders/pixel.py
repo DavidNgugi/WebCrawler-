@@ -19,7 +19,7 @@ class PexelsScraper(scrapy.Spider):
 
 
     def start_requests(self):
-        url = "https://textbookcentre.com/"
+        url = "https://textbookcentre.com/catalogue/category/text-books/secondary-school/"
         yield scrapy.Request(url, self.parse)
         
 
