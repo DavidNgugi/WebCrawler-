@@ -7,7 +7,7 @@ class PexelsScraper(scrapy.Spider):
     name = "pexels"
     
     # Define the regex we'll need to filter the returned links
-    url_matcher = re.compile('^https:\/\/www\.pexels\.com\/photo\/')
+    url_matcher = re.compile('^https:\/\/www\.textbookcentre\.com\/')
     src_extractor = re.compile('src="([^"]*)"')
     tags_extractor = re.compile('alt="([^"]*)"')
     
